@@ -1,1 +1,2 @@
 Beautify: Ctrl+Alt+L
+Rename  : Shift+F6

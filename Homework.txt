@@ -36,6 +36,7 @@ Herkes kurulumları yapacak.
 2.22- pom.xml nedir ?
 2.23- Data types  nedir ?
 2.24- jar ile war arasındaki farklar nelerdir ?
+2.25- Java8 gelen özellikler nelerdir ?
 
 
 
