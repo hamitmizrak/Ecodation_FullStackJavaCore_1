@@ -1,4 +1,4 @@
-# IBB Ecodation Java Core
+# Java Full Stack Java Core-1 Ecodation Java Core
 [GitHub](https://github.com/hamitmizrak/Ecodation_FullStackJavaCore_1)
 [JDK](https://www.oracle.com/tr/java/technologies/downloads/#jdk23-windows)
 [Intellij Idea Community](https://www.jetbrains.com/idea/download/?section=windows)
@@ -13,7 +13,7 @@ git add .
 git commit -m "add message"
 git push -u origin master
 
-git clone  https://github.com/hamitmizrak/ibb_ecodation_javacore.git
+git clone  https://github.com/hamitmizrak/Ecodation_FullStackJavaCore_1
 ```
 ---
 
