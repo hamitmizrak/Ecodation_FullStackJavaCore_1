@@ -21,6 +21,7 @@ String
 Conditional
 Loop
 Method
+Exception
 Array
 OOP
  */
