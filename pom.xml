@@ -5,13 +5,72 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.hamitmizrak</groupId>
-    <artifactId>Ecodation_FullStackDeveloper_1</artifactId>
+    <artifactId>Ecodation_FullStackJavaCore_1</artifactId>
     <version>1.0-SNAPSHOT</version>
 
+    <url/>
+    <licenses>
+        <license/>
+    </licenses>
+    <developers>
+        <developer/>
+    </developers>
+    <scm>
+        <connection/>
+        <developerConnection/>
+        <tag/>
+        <url/>
+    </scm>
+
+    <!--
+    war: java EE için kullanalım. JSP,servlet,html,css3
+    jar: Spring Boot için kullanalım
+    -->
+    <!--apache tomcat manuel için war ekliyorum-->
+    <!--<packaging>war</packaging>-->
+    <packaging>jar</packaging>
+
+    <!-- start properties-->
     <properties>
+        <encoding>UTF-8</encoding>
+        <java.version>24</java.version>
+
+        <!--for maven-->
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+
+        <!--Maven Compiler-->
+        <maven.compiler.release>24</maven.compiler.release>
         <maven.compiler.source>24</maven.compiler.source>
         <maven.compiler.target>24</maven.compiler.target>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
-    
+    <!-- end properties-->
+
+    <!-- start dependencies-->
+    <dependencies>
+        <!--lombok-->
+        <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.36</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <!-- Java'da Şifreleme (AES) İçin Apache Commons Codec -->
+        <dependency>
+            <groupId>commons-codec</groupId>
+            <artifactId>commons-codec</artifactId>
+            <version>1.15</version>
+        </dependency>
+
+        <!-- RDBMS MYSQL-->
+        <!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>8.0.28</version>
+        </dependency>
+    </dependencies>
+    <!-- end dependencies-->
 </project>
