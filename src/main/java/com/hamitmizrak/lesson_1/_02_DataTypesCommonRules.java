@@ -19,7 +19,6 @@ public class _02_DataTypesCommonRules {
         byte $schoolCode=55;
         System.out.println($schoolCode);
 
-
         // Yazamazsınız !!!!!!!!!.
         // kısa yazmak okunabilinirliği(Readability) öldürür. s1 yazmayın.
         // byte s1=663;
@@ -29,8 +28,5 @@ public class _02_DataTypesCommonRules {
 
         // özel simgelerden($ ve _) haricinden başlanmaz.
         // byte &+~schoolCode=663;
-
-
-
     }
 }
