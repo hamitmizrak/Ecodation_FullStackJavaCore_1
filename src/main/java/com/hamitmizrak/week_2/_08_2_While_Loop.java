@@ -1,21 +1,24 @@
-package com.hamitmizrak.lesson_1;
+package com.hamitmizrak.week_2;
 
-public class _08_3_Do_While_Loop {
+public class _08_2_While_Loop {
     public static void main(String[] args) {
-        // Do-While Loop
-        // do while : her şartta bir kere çalışsın
+        // While Loop
 
         int i = 1;
-        do {
+        while (i <= 10) {
             System.out.print(i + " ");
             i++;
-        } while (i <= 10);
+        }
+
+        // while sonsuz döngü
+        // while(true){}
     }
 }
 
 
 
 /*
+Loop
 String
 Method
 Exception

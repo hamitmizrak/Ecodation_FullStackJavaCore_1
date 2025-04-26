@@ -1,4 +1,4 @@
-package com.hamitmizrak.lesson_1;
+package com.hamitmizrak.week_1;
 
 // single Comment: Hello World:
 /*
