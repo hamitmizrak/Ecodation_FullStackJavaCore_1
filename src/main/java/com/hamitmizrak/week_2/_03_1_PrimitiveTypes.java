@@ -1,6 +1,6 @@
 package com.hamitmizrak.week_2;
 
-public class _03_PrimitiveTypes {
+public class _03_1_PrimitiveTypes {
     public static void main(String[] args) {
         // Primitive Types
         /*

@@ -57,6 +57,7 @@ Herkes kurulumları yapacak.
 4.1 String'te .isBlank() ile  .isEmpty() arasındaki fark nedir ?
 4.2 StringBuffer
 4.3 StringBuilder nedir aralarında farklar nelerdir ?
+4.4 Cast nedir ?
 
 
 
@@ -64,6 +65,14 @@ Herkes kurulumları yapacak.
 5.DERS (03 Mayıs 2025 Cumartesi)
 --------------------------------------------------------------
 --------------------------------------------------------------
+5.1 Overloading
+5.2 Override
+5.3 parametre ile argüman arasındaki farklar nelerdir ?
+5.4 Access Modifier nedir
+5.5 this keyword nedir ?
+5.6 this keyword nedir ?
+5.7 super keyword nedir ?
+
 
 
 
