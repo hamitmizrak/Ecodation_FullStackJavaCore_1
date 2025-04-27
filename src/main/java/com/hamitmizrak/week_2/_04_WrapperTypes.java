@@ -44,18 +44,3 @@ public class _04_WrapperTypes {
         System.out.println(primitiveBoolean2);
     }
 }
-
-
-
-/*
-Operatorler
-Math
-Conditional
-Loop
-String
-Method
-Exception
-Array
-Collections
-OOP (Inheritance+abstract+interface)
- */

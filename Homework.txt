@@ -54,6 +54,9 @@ Herkes kurulumları yapacak.
 4.DERS (27 Nisan 2025 Pazar)
 --------------------------------------------------------------
 --------------------------------------------------------------
+4.1 String'te .isBlank() ile  .isEmpty() arasındaki fark nedir ?
+4.2 StringBuffer
+4.3 StringBuilder nedir aralarında farklar nelerdir ?
 
 
 

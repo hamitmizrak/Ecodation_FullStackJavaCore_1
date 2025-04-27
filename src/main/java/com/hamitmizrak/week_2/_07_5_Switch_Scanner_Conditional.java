@@ -33,13 +33,3 @@ public class _07_5_Switch_Scanner_Conditional {
         }
     }
 }
-
-/*
-Loop
-String
-Method
-Exception
-Array
-Collections
-OOP (Inheritance+abstract+interface)
- */

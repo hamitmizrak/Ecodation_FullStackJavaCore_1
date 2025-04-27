@@ -1,6 +1,5 @@
 package com.hamitmizrak.week_2;
 
-
 public class _07_5_Switch_Conditional {
     public static void main(String[] args) {
         // Conditional (Multiple)
@@ -44,16 +43,3 @@ public class _07_5_Switch_Conditional {
         }
     }
 }
-
-
-
-/*
-
-Loop
-String
-Method
-Exception
-Array
-Collections
-OOP (Inheritance+abstract+interface)
- */

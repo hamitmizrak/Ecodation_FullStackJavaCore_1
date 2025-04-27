@@ -1,6 +1,5 @@
 package com.hamitmizrak.week_2;
 
-
 public class _07_3_Ternary_Conditional {
     public static void main(String[] args) {
         // Conditional (Ternary)
@@ -8,16 +7,3 @@ public class _07_3_Ternary_Conditional {
         System.out.println(ternary);
     }
 }
-
-
-
-/*
-
-Loop
-String
-Method
-Exception
-Array
-Collections
-OOP (Inheritance+abstract+interface)
- */

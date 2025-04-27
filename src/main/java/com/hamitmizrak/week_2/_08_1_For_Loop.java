@@ -16,15 +16,3 @@ public class _08_1_For_Loop {
         // for(;;){}
     }
 }
-
-
-
-/*
-Loop
-String
-Method
-Exception
-Array
-Collections
-OOP (Inheritance+abstract+interface)
- */

@@ -25,16 +25,3 @@ public class _06_Math {
         System.out.println("sin: "+Math.sin(45));
     }
 }
-
-
-
-/*
-Conditional
-Loop
-String
-Method
-Exception
-Array
-Collections
-OOP (Inheritance+abstract+interface)
- */

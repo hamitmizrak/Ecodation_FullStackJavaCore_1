@@ -1,6 +1,5 @@
 package com.hamitmizrak.week_2;
 
-
 public class _07_1_Conditional {
     public static void main(String[] args) {
         // Conditional
@@ -11,16 +10,3 @@ public class _07_1_Conditional {
         }
     }
 }
-
-
-
-/*
-
-Loop
-String
-Method
-Exception
-Array
-Collections
-OOP (Inheritance+abstract+interface)
- */

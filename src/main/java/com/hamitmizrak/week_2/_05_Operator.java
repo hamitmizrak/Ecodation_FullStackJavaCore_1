@@ -17,17 +17,3 @@ public class _05_Operator {
         // &&=VE ||=VEYA !=Değil
     }
 }
-
-
-
-/*
-Math
-Conditional
-Loop
-String
-Method
-Exception
-Array
-Collections
-OOP (Inheritance+abstract+interface)
- */

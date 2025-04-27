@@ -14,15 +14,3 @@ public class _08_2_While_Loop {
         // while(true){}
     }
 }
-
-
-
-/*
-Loop
-String
-Method
-Exception
-Array
-Collections
-OOP (Inheritance+abstract+interface)
- */

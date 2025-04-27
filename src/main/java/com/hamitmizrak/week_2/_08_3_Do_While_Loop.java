@@ -12,14 +12,3 @@ public class _08_3_Do_While_Loop {
         } while (i <= 10);
     }
 }
-
-
-
-/*
-String
-Method
-Exception
-Array
-Collections
-OOP (Inheritance+abstract+interface)
- */

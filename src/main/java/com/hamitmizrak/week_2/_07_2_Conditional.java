@@ -11,16 +11,3 @@ public class _07_2_Conditional {
 
     }
 }
-
-
-
-/*
-
-Loop
-String
-Method
-Exception
-Array
-Collections
-OOP (Inheritance+abstract+interface)
- */
