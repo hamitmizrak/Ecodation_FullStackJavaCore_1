@@ -31,5 +31,8 @@ public class _07_5_Switch_Scanner_Conditional {
                 System.out.println("1<=X<=5 dışındır.");
                 break;
         }
+
+        // Scanner Close
+        scanner.close();
     }
 }

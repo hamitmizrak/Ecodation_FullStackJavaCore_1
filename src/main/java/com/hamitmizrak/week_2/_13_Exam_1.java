@@ -2,7 +2,7 @@ package com.hamitmizrak.week_2;
 
 import java.util.Scanner;
 
-public class _14_Exam_1 {
+public class _13_Exam_1 {
     public static void main(String[] args) {
         // Password- Repassword (Şifre kontrolü)
         // Validation
@@ -36,12 +36,9 @@ public class _14_Exam_1 {
 
 
 /*
-Formatter
-Date/Calendar
-Method
 Exception
-Examples
-
+Thread
+File IO/NIO
 Array
 Collections
 OOP (Inheritance+abstract+interface)

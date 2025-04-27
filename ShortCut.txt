@@ -1,2 +1,3 @@
 Beautify: Ctrl+Alt+L
 Rename  : Shift+F6
+Gereksiz kütüphaneleri kaldır: Ctrl+Alt+O
