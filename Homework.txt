@@ -72,6 +72,8 @@ Herkes kurulumları yapacak.
 5.5 this keyword nedir ?
 5.6 this keyword nedir ?
 5.7 super keyword nedir ?
+5.8 Instance nedir ?
+5.9
 
 
 
