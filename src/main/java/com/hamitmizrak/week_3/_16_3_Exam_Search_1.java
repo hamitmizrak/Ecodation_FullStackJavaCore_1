@@ -12,7 +12,7 @@ public class _16_3_Exam_Search_1 {
         city[3] = "malatya";
         city[4] = "sivas";
         city[5] = "diyarbakır";
-        //{"elazığ", "asd", "malatya", "sivas", "bitlis", "diyarbakır"};
+        //{"elazığ", "Bingöl", "malatya", "sivas", "bitlis", "diyarbakır"};
 
         System.out.println(city[1]);
         // Dizilerde search

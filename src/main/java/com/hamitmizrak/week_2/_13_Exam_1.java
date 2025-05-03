@@ -101,19 +101,32 @@ public class _13_Exam_1 {
 /*
 Cumartesi
 ------------
-Array
 File IO/NIO
-
 
 Pazar
 ------------
-Cipher
 Collections
-Lambda Expression
-
+- List
+- Set
+- Map
 
 Cumartesi-Pazar
 ------------
-OOP (Inheritance+abstract+interface)
+OOP
+Class
+access modifier
+static
+constructor (parametresiz)
+constructor (parametreli)
+toString
+
+Inheritance (this, super)
+abstract
+interface
+polymorphism
+
 Thread
+Lambda Expression
+Java 8 ile gelen özellikler
+Cipher
  */
