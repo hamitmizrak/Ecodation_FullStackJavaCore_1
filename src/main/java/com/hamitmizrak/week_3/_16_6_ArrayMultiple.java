@@ -26,3 +26,37 @@ public class _16_6_ArrayMultiple {
         }
     }
 }
+
+
+/*
+Cumartesi
+------------
+File IO/NIO
+
+Pazar
+------------
+Collections
+- List
+- Set
+- Map
+
+Cumartesi-Pazar
+------------
+OOP
+Class
+access modifier
+static
+constructor (parametresiz)
+constructor (parametreli)
+toString
+
+Inheritance (this, super)
+abstract
+interface
+polymorphism
+
+Thread
+Lambda Expression
+Java 8 ile gelen özellikler
+Cipher
+ */
