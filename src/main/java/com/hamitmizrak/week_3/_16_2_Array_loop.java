@@ -20,6 +20,10 @@ public class _16_2_Array_loop {
 
         System.out.println();
         // 3.YOL Stream
+        //Dizilerde sıralama
+        Arrays.sort(city);
+
         Arrays.stream(city).toList().forEach(temp-> System.out.print(temp+" "));
+
     }
 }
