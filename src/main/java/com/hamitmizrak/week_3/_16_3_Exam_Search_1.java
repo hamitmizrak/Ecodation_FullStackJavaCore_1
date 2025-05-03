@@ -3,7 +3,7 @@ package com.hamitmizrak.week_3;
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class _16_3_Exam_Search {
+public class _16_3_Exam_Search_1 {
     public static void main(String[] args) {
         String[] city = new String[6];
         city[0] = "elazığ";
