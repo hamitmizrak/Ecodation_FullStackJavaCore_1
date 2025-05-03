@@ -101,7 +101,6 @@ public class _13_Exam_1 {
 /*
 Cumartesi
 ------------
-Exception
 Array
 File IO/NIO
 
@@ -110,6 +109,7 @@ Pazar
 ------------
 Cipher
 Collections
+Lambda Expression
 
 
 Cumartesi-Pazar
