@@ -1,7 +1,7 @@
 package com.hamitmizrak.week_2;
 
 
-public class _06_Math {
+public class _06_1_Math {
     public static void main(String[] args) {
         // Math
         System.out.println("PI: "+Math.PI);
