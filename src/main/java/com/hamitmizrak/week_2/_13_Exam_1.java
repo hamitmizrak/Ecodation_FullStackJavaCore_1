@@ -101,11 +101,9 @@ public class _13_Exam_1 {
 /*
 Cumartesi
 ------------
-cast
 Exception
-Thread
-File IO/NIO
 Array
+File IO/NIO
 
 
 Pazar
@@ -117,4 +115,5 @@ Collections
 Cumartesi-Pazar
 ------------
 OOP (Inheritance+abstract+interface)
+Thread
  */
