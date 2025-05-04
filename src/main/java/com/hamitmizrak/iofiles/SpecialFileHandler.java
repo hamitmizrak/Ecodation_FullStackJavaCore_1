@@ -105,7 +105,6 @@ public class SpecialFileHandler implements IFileHandlerInterface{
         IFileHandlerInterface.super.logInfo(message);
     }
 
-
     // GETTER AND SETTER
     public String getFilePath() {
         return filePath;
