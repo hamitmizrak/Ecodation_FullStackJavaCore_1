@@ -1,23 +1,19 @@
-package com.hamitmizrak.tutorials.totorials_2025.week_4._1_interfacex;
+package com.hamitmizrak.tutorials.totorials_2025.week_4._2_inheritancex;
 
-import java.io.Serializable;
 import java.util.Date;
 
-// POJO = field+getter and setter
-// BEAN = POJO + Constructor + toString+ Method
-public class StudentDto implements ICrud, Serializable {
-
-    // Serileştirme
-    public static final long serialVersionUID = 1L;
+public class Person {
 
     // Field (Global)
     private Integer id;
     private String name;
     private String surname;
     private Date createdDate;
+    private Date modifiedDate;
 
+    // Constructor
     // Parametresiz Constructor
-    public StudentDto() {
+    public Person() {
         this.id = 0;
         this.name = "your name is not write there ...";
         this.surname = "your surname is not write there ...";
@@ -25,54 +21,31 @@ public class StudentDto implements ICrud, Serializable {
     }
 
     // Parametreli Constructor
-    public StudentDto(Integer _id, String name, String surname) {
+    public Person(Integer _id, String name, String surname) {
         id = _id;
         this.name = name;
         this.surname = surname;
         this.createdDate = new Date();
     }
 
-    public StudentDto(String name, String surname) {
+    public Person(String name, String surname) {
         this.name = name;
         this.surname = surname;
     }
 
-    // toString
-
-
+    // ToString
     @Override
     public String toString() {
-        return "StudentDto{" +
+        return "Person{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", surname='" + surname + '\'' +
                 ", createdDate=" + createdDate +
+                ", modifiedDate=" + modifiedDate +
                 '}';
     }
 
-    // Method
-    public String fullName() { //Local
-        return this.name + " " + this.surname;
-    }
-
-    // CRUD
-    @Override
-    public void create() {
-        System.out.println("student Create");
-    }
-
-    @Override
-    public void delete(int id) {
-        System.out.println("student Delete" + id);
-    }
-
-    @Override
-    public void update(int id) {
-        System.out.println("student update" + id);
-    }
-
-
-    // Getter And Setter
+    // GETTER AND SETTER
     public Integer getId() {
         return id;
     }
@@ -105,5 +78,11 @@ public class StudentDto implements ICrud, Serializable {
         this.createdDate = createdDate;
     }
 
+    public Date getModifiedDate() {
+        return modifiedDate;
+    }
 
+    public void setModifiedDate(Date modifiedDate) {
+        this.modifiedDate = modifiedDate;
+    }
 }

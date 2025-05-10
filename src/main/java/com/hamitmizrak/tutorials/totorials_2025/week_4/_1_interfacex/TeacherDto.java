@@ -5,7 +5,7 @@ import java.util.Date;
 
 // POJO = field+getter and setter
 // BEAN = POJO + Constructor + toString+ Method
-public class TeacherDto implements IPersonCommon, Serializable {
+public class TeacherDto implements ICrud, Serializable {
 
     // Serileştirme
     public static final long serialVersionUID = 1L;
@@ -101,22 +101,6 @@ public class TeacherDto implements IPersonCommon, Serializable {
 
     public void setCreatedDate(Date createdDate) {
         this.createdDate = createdDate;
-    }
-
-    // PSVM
-    public static void main(String[] args) {
-        // (instance: Örnekler)
-
-        //  Instance-1
-        TeacherDto studentDto = new TeacherDto();
-        studentDto.setId(1);
-        studentDto.setName("Hamit");
-        System.out.println(studentDto);
-
-        // Instance-2
-        // Integer _id, String name, String surname
-        TeacherDto studentDto2 = new TeacherDto(1, "Ahmet", "Yılmaz");
-        System.out.println(studentDto2);
     }
 
 
