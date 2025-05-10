@@ -15,5 +15,12 @@ public class MainAbstract {
         teacherDto.setName("Hamit");
         studentDto2.fullName();
         System.out.println(teacherDto);
+
+        // NORMAL ŞARTLARDA EĞER INHERITANCE OLSAYDI YAPABİLİRDİK ANCAK ABSTRACT OLMAZ
+        Person person= new StudentDto(); //polymorhism
+
+        StudentDto student= new StudentDto();// ınstance
+        //student.getStudentCode()
+
     }
 }

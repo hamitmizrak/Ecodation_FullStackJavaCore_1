@@ -67,4 +67,11 @@ public class StudentDto extends Person implements ICrud, Serializable {
         System.out.println("student read" + id);
     }
 
+    public String getStudentCode() {
+        return studentCode;
+    }
+
+    public void setStudentCode(String studentCode) {
+        this.studentCode = studentCode;
+    }
 }

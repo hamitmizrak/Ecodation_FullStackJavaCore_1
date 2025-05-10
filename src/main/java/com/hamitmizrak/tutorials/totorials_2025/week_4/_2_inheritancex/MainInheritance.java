@@ -34,7 +34,11 @@ public class MainInheritance {
 
         // Instance-2
         // Integer _id, String name, String surname
-       TeacherDto teacherDto1 = new TeacherDto(1, "Ahmet", "Yılmaz");
+        TeacherDto teacherDto1 = new TeacherDto(1, "Ahmet", "Yılmaz");
         System.out.println(teacherDto1);
+
+        ///////////////////////////
+        // NORMAL ŞARTLARDA EĞER INHERITANCE OLSAYDI YAPABİLİRDİK ANCAK ABSTRACT OLMAZ
+        Person person = new Person();
     }
 }

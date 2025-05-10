@@ -66,4 +66,11 @@ public class TeacherDto extends Person implements ICrud, Serializable {
         System.out.println("teacher read" + id);
     }
 
+    public String getTeacherPrice() {
+        return teacherPrice;
+    }
+
+    public void setTeacherPrice(String teacherPrice) {
+        this.teacherPrice = teacherPrice;
+    }
 }
