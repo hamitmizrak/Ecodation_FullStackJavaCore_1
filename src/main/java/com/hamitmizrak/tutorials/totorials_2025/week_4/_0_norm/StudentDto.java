@@ -34,8 +34,6 @@ public class StudentDto {
     }
 
     // toString
-
-
     @Override
     public String toString() {
         return "StudentDto{" +
@@ -49,6 +47,19 @@ public class StudentDto {
     // Method
     public String fullName(){ //Local
         return this.name +" " + this.surname;
+    }
+
+    // CRUD
+    public void create(){
+        System.out.println("Student Create");
+    }
+
+    public void delete(int id){
+        System.out.println("Student Delete"+id);
+    }
+
+    public void update(int id) {
+        System.out.println("Student update" + id);
     }
 
     // Getter And Setter

@@ -1,10 +1,14 @@
-package com.hamitmizrak.tutorials.totorials_2025.week_4._0_norm;
+package com.hamitmizrak.tutorials.totorials_2025.week_4._1_interfacex;
 
+import java.io.Serializable;
 import java.util.Date;
 
 // POJO = field+getter and setter
 // BEAN = POJO + Constructor + toString+ Method
-public class TeacherDto {
+public class TeacherDto implements IPersonCommon, Serializable {
+
+    // Serileştirme
+    public static final long serialVersionUID = 1L;
 
     // Field (Global)
     private Integer id;
@@ -45,21 +49,24 @@ public class TeacherDto {
     }
 
     // Method
-    public String fullName(){ //Local
-        return this.name +" " + this.surname;
+    public String fullName() { //Local
+        return this.name + " " + this.surname;
     }
 
     // CRUD
-    public void create(){
-        System.out.println("Teacher Create");
+    @Override
+    public void create() {
+        System.out.println("TeacherDto create");
     }
 
-    public void delete(int id){
-        System.out.println("Teacher Delete"+id);
+    @Override
+    public void delete(int id) {
+        System.out.println("TeacherDto delete" + id);
     }
 
+    @Override
     public void update(int id) {
-        System.out.println("Teacher update" + id);
+        System.out.println("TeacherDto update" + id);
     }
 
 
@@ -108,7 +115,9 @@ public class TeacherDto {
 
         // Instance-2
         // Integer _id, String name, String surname
-        TeacherDto studentDto2 = new TeacherDto(1, "Ahmet","Yılmaz");
+        TeacherDto studentDto2 = new TeacherDto(1, "Ahmet", "Yılmaz");
         System.out.println(studentDto2);
     }
+
+
 }
