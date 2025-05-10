@@ -1,4 +1,4 @@
-package com.hamitmizrak.tutorials.week_3;
+package com.hamitmizrak.tutorials.totorials_2025.week_3;
 
 import java.util.Arrays;
 import java.util.Scanner;

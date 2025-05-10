@@ -1,4 +1,4 @@
-package com.hamitmizrak.tutorials.week_4;
+package com.hamitmizrak.tutorials.totorials_2025.week_4;
 
 public class _18_1_Class {
 

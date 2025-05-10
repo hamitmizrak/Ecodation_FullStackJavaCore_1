@@ -1,4 +1,4 @@
-package com.hamitmizrak.tutorials.week_3;
+package com.hamitmizrak.tutorials.totorials_2025.week_3;
 
 public class _16_5_Array_Split {
     public static void main(String[] args) {

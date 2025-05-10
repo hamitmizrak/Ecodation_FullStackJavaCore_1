@@ -1,4 +1,4 @@
-package com.hamitmizrak.tutorials.week_2;
+package com.hamitmizrak.tutorials.totorials_2025.week_2;
 
 
 import java.util.Scanner;

@@ -1,4 +1,4 @@
-package com.hamitmizrak.tutorials.week_1;
+package com.hamitmizrak.tutorials.totorials_2025.week_1;
 
 public class _02_DataTypesCommonRules {
     public static void main(String[] args) {

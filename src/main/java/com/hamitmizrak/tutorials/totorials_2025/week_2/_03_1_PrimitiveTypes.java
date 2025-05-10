@@ -1,4 +1,4 @@
-package com.hamitmizrak.tutorials.week_2;
+package com.hamitmizrak.tutorials.totorials_2025.week_2;
 
 public class _03_1_PrimitiveTypes {
     public static void main(String[] args) {

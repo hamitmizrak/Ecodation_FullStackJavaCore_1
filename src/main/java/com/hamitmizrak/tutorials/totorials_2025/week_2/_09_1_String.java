@@ -1,4 +1,4 @@
-package com.hamitmizrak.tutorials.week_2;
+package com.hamitmizrak.tutorials.totorials_2025.week_2;
 
 public class _09_1_String {
     public static void main(String[] args) {
