@@ -49,6 +49,15 @@ public class TeacherDto {
         return this.name +" " + this.surname;
     }
 
+    // CRUD
+    public void create(){
+        System.out.println("Create");
+    }
+
+    public void delete(int id){
+        System.out.println("Delete"+id);
+    }
+
     // Getter And Setter
     public Integer getId() {
         return id;
@@ -81,7 +90,6 @@ public class TeacherDto {
     public void setCreatedDate(Date createdDate) {
         this.createdDate = createdDate;
     }
-
 
     // PSVM
     public static void main(String[] args) {
