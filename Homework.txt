@@ -78,10 +78,31 @@ Herkes kurulumları yapacak.
 
 
 
-
 6.DERS (04 Mayıs 2025 Pazar)
 --------------------------------------------------------------
 --------------------------------------------------------------
+
+
+
+7.DERS (10 Mayıs 2025 Cumartesi)
+--------------------------------------------------------------
+--------------------------------------------------------------
+
+
+
+6.DERS (11 Mayıs 2025 Pazar)
+--------------------------------------------------------------
+--------------------------------------------------------------
+6.1 Spring Framework nedir ?
+6.2 Spring Boot nedir ?
+6.3 Spring Data nedir ?
+6.4 Spring Security nedir ?
+6.5 Spring Api/Mvc nedir ?
+6.6 n-tier architecture nedir ?
+6.7 MVC nedir ?
+6.8 pom.xml ve maven nedir ?
+6.9 Java'da annotation nedir ?
+6.10 JavaEE nedir ?
 
 
 
