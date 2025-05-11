@@ -87,22 +87,26 @@ Herkes kurulumları yapacak.
 7.DERS (10 Mayıs 2025 Cumartesi)
 --------------------------------------------------------------
 --------------------------------------------------------------
+7.1 Composition nedir ?
+7.2 SOLID prensible nedir ?
+7.3 isNull ile isBlank arasındaki farklar nelerdir ?
 
 
 
-6.DERS (11 Mayıs 2025 Pazar)
+
+8.DERS (11 Mayıs 2025 Pazar)
 --------------------------------------------------------------
 --------------------------------------------------------------
-6.1 Spring Framework nedir ?
-6.2 Spring Boot nedir ?
-6.3 Spring Data nedir ?
-6.4 Spring Security nedir ?
-6.5 Spring Api/Mvc nedir ?
-6.6 n-tier architecture nedir ?
-6.7 MVC nedir ?
-6.8 pom.xml ve maven nedir ?
-6.9 Java'da annotation nedir ?
-6.10 JavaEE nedir ?
+8.1 Spring Framework nedir ?
+8.2 Spring Boot nedir ?
+8.3 Spring Data nedir ?
+8.4 Spring Security nedir ?
+8.5 Spring Api/Mvc nedir ?
+8.6 n-tier architecture nedir ?
+8.7 MVC nedir ?
+8.8 pom.xml ve maven nedir ?
+8.9 Java'da annotation nedir ?
+8.10 JavaEE nedir ?
 
 
 

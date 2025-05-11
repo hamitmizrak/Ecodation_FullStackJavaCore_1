@@ -1,15 +1,15 @@
 package com.hamitmizrak.exception;
 
 // Öğrenci bulunamazsa Fırlatılacak Özel Excepiton
-public class RegisterNotFoundException extends RuntimeException {
+public class StudentNotFoundException extends RuntimeException {
 
     // Parametresiz Constructor
-    public RegisterNotFoundException() {
+    public StudentNotFoundException() {
         super("Kayıt bulunamadı");
     }
 
     // Parametreli Constructor
-    public RegisterNotFoundException(String message) {
+    public StudentNotFoundException(String message) {
         super(message);
     }
 }
