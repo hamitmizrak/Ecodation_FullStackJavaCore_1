@@ -12,13 +12,18 @@ import java.util.logging.Logger;
 
 public class StudentController implements IDaoGenerics<StudentDto> {
 
+    // ✅ Loglama
     private static final Logger logger = Logger.getLogger(StudentController.class.getName());
+
+    // ✅ Field
     private final StudentDao studentDao;
 
+    // ✅ Parametresiz Constructor
     public StudentController() {
         this.studentDao = new StudentDao();
     }
 
+    // ✅ CREATE
     @Override
     @LogExecutionTime
     public Optional<StudentDto> create(StudentDto studentDto) {
@@ -33,6 +38,7 @@ public class StudentController implements IDaoGenerics<StudentDto> {
         return createdStudent;
     }
 
+    // ✅ FIND BY NAME
     @Override
     @LogExecutionTime
     public Optional<StudentDto> findByName(String name) {
@@ -42,6 +48,7 @@ public class StudentController implements IDaoGenerics<StudentDto> {
         return studentDao.findByName(name.trim());
     }
 
+    // ✅ FIND BY ID
     @Override
     @LogExecutionTime
     public Optional<StudentDto> findById(int id) {
@@ -54,6 +61,7 @@ public class StudentController implements IDaoGenerics<StudentDto> {
         });
     }
 
+    // ✅ LIST
     @Override
     @LogExecutionTime
     public List<StudentDto> list() {
@@ -64,6 +72,7 @@ public class StudentController implements IDaoGenerics<StudentDto> {
         return studentDtoList;
     }
 
+    // ✅ UPDATE
     @Override
     @LogExecutionTime
     public Optional<StudentDto> update(int id, StudentDto studentDto) {
@@ -73,6 +82,7 @@ public class StudentController implements IDaoGenerics<StudentDto> {
         return studentDao.update(id, studentDto);
     }
 
+    // ✅ DELETE
     @Override
     @LogExecutionTime
     public Optional<StudentDto> delete(int id) {
@@ -84,7 +94,6 @@ public class StudentController implements IDaoGenerics<StudentDto> {
             return Optional.empty();
         });
     }
-
 
     //@LogExecutionTime
     public void choose() {

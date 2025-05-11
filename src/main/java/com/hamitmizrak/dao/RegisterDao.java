@@ -1,7 +1,8 @@
 package com.hamitmizrak.dao;
 
 import com.hamitmizrak.dto.RegisterDto;
-import com.hamitmizrak.exceptions.RegisterNotFoundException;
+
+import com.hamitmizrak.exception.RegisterNotFoundException;
 import com.hamitmizrak.iofiles.SpecialFileHandler;
 import com.hamitmizrak.utils.SpecialColor;
 
@@ -15,14 +16,19 @@ import java.util.logging.Logger;
 
 public class RegisterDao implements IDaoGenerics<RegisterDto> {
 
+    // ✅ Loglama
     private static final Logger logger = Logger.getLogger(RegisterDao.class.getName());
+
+    // ✅ Field
     private final List<RegisterDto> registerDtoList;
     private final SpecialFileHandler fileHandler;
 
+    // ✅ static
     static {
         System.out.println(SpecialColor.RED + " Static: RegisterDao Initialized" + SpecialColor.RESET);
     }
 
+    // ✅ Parametresiz Constructor
     public RegisterDao() {
         this.fileHandler = new SpecialFileHandler();
         this.fileHandler.setFilePath("registers.txt");
@@ -38,6 +44,7 @@ public class RegisterDao implements IDaoGenerics<RegisterDto> {
         }
     }
 
+    // ✅ AI: Auto Incredement
     public int generateNewId() {
         return registerDtoList.isEmpty() ? 1 :
                 registerDtoList.stream().mapToInt(RegisterDto::getId).max().orElse(0) + 1;
@@ -75,7 +82,8 @@ public class RegisterDao implements IDaoGenerics<RegisterDto> {
         }
     }
 
-
+    /////////////////////////////////////////////////////////////////////////////////////////////
+    // ✅ CREATE
     @Override
     public Optional<RegisterDto> create(RegisterDto registerDto) {
         registerDtoList.add(registerDto);
@@ -83,11 +91,13 @@ public class RegisterDao implements IDaoGenerics<RegisterDto> {
         return Optional.of(registerDto);
     }
 
+    // ✅ LIST
     @Override
     public List<RegisterDto> list() {
         return new ArrayList<>(registerDtoList);
     }
 
+    // ✅ FIND BY NAME
     @Override
     public Optional<RegisterDto> findByName(String nickName) {
         return registerDtoList.stream()
@@ -95,12 +105,14 @@ public class RegisterDao implements IDaoGenerics<RegisterDto> {
                 .findFirst();
     }
 
+    // ✅ FIND BY EMAIL
     public Optional<RegisterDto> findByEmail(String email) {
         return registerDtoList.stream()
                 .filter(s -> s.getEmailAddress().equals(email))
                 .findFirst();
     }
 
+    // ✅ FIND BY ID
     @Override
     public Optional<RegisterDto> findById(int id) {
         return registerDtoList.stream()
@@ -108,6 +120,7 @@ public class RegisterDao implements IDaoGenerics<RegisterDto> {
                 .findFirst();
     }
 
+    // ✅ OVER WRITE
     public void overwriteFile() {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(fileHandler.getFilePath(), false))) {
             for (RegisterDto register : registerDtoList) {
@@ -119,6 +132,7 @@ public class RegisterDao implements IDaoGenerics<RegisterDto> {
         }
     }
 
+    // ✅ UPDATE
     @Override
     public Optional<RegisterDto> update(int id, RegisterDto registerDto) {
         for (int i = 0; i < registerDtoList.size(); i++) {
@@ -131,6 +145,7 @@ public class RegisterDao implements IDaoGenerics<RegisterDto> {
         throw new RegisterNotFoundException("Kayıt bulunamadı.");
     }
 
+    // ✅ DELETE
     @Override
     public Optional<RegisterDto> delete(int id) {
         Optional<RegisterDto> registerToDelete = findById(id);
@@ -145,6 +160,7 @@ public class RegisterDao implements IDaoGenerics<RegisterDto> {
         }
     }
 
+    // ✅ CHOOSE
     @Override
     public void choose() {
         // Kullanıcı işlemlerini yönlendirme

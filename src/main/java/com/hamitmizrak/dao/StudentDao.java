@@ -3,7 +3,7 @@ package com.hamitmizrak.dao;
 import com.hamitmizrak.dto.ERole;
 import com.hamitmizrak.dto.EStudentType;
 import com.hamitmizrak.dto.StudentDto;
-import com.hamitmizrak.exceptions.StudentNotFoundException;
+import com.hamitmizrak.exception.StudentNotFoundException;
 import com.hamitmizrak.iofiles.SpecialFileHandler;
 import com.hamitmizrak.utils.SpecialColor;
 
@@ -20,29 +20,28 @@ import java.util.logging.Logger;
  */
 public class StudentDao implements IDaoGenerics<StudentDto> {
 
-    // Logger
+    // ✅ Logger
     private static final Logger logger = Logger.getLogger(StudentDao.class.getName());
 
-    // Field
+    // ✅ Field
     private final List<StudentDto> studentDtoList;
 
     // **📌 Scanner Nesnesini En Üste Tanımladık**
     private final Scanner scanner = new Scanner(System.in);
 
-    // SpecialFileHandler
+    // ✅ SpecialFileHandler
     private SpecialFileHandler fileHandler;
 
-    // File dosyasına eklenen en büyük ID alıp yeni eklenecek file için 1 artır
+    // ✅ File dosyasına eklenen en büyük ID alıp yeni eklenecek file için 1 artır
     int maxId=0;
 
     ///////////////////////////////////////////////////////////////////////
-    // static
+    // ✅ static
     static {
         System.out.println(SpecialColor.RED+" Static: StudentDao"+ SpecialColor.RESET);
     }
 
-    // Parametresiz Constructor
-    /// Parametresiz Constructor
+    /// ✅ Parametresiz Constructor
     public StudentDao() {
         this.fileHandler = new SpecialFileHandler();
         this.fileHandler.setFilePath("students.txt");
@@ -59,11 +58,8 @@ public class StudentDao implements IDaoGenerics<StudentDto> {
                 System.out.println("⚠️ Hatalı satır atlandı: " + line);
             }
         }
-
         System.out.println("✅ " + studentDtoList.size() + " öğrenci dosyadan başarıyla yüklendi!");
     }
-
-
 
     /// /////////////////////////////////////////////////////////////
     // 📌 Öğrenci nesnesini CSV formatına çevirme
@@ -81,7 +77,6 @@ public class StudentDao implements IDaoGenerics<StudentDto> {
                 student.getEStudentType() + "," +  // 📌 Öğrenci türü (Enum)
                 student.getERole();   // 📌 Rol (Enum)
     }
-
 
     // 📌 CSV formatındaki satırı StudentDto nesnesine çevirme
     // Bu metod, CSV formatındaki bir satırı parçalayarak bir StudentDto nesnesine dönüştürür.
@@ -119,19 +114,14 @@ public class StudentDao implements IDaoGenerics<StudentDto> {
                 System.out.println(SpecialColor.RED + "⚠️ Hatalı rol türü: " + parts[9] + " Varsayılan atanıyor!" + SpecialColor.RESET);
                 role = ERole.STUDENT;
             }
-
             return new StudentDto(id, name, surname, birthDate, midTerm, finalTerm, studentType, role);
-
         } catch (Exception e) {
             System.out.println(SpecialColor.RED + "⚠️ CSV'den öğrenci yükleme hatası: " + e.getMessage() + SpecialColor.RESET);
             return null;
         }
     }
 
-
-
-    ///////////////////////////////////////////////////////////////
-
+    ////////////////////////////////////////////////////////////////////////////////////////////////////
     /**
      * 📌 Öğrenci Ekleme (CREATE)
      */
@@ -167,7 +157,6 @@ public class StudentDao implements IDaoGenerics<StudentDto> {
             System.out.println(studentDto+ SpecialColor.GREEN + "✅ Öğrenci başarıyla eklendi!" + SpecialColor.RESET);
             logger.info("✅ Yeni öğrenci eklendi: " + studentDto.getName());
             return Optional.of(studentDto);
-
         } catch (IllegalArgumentException e) {
             System.out.println(SpecialColor.RED + "⛔ Hata: " + e.getMessage() + SpecialColor.RESET);
             //return null; // Hata durumunda nesne oluşturulmaz
@@ -212,8 +201,7 @@ public class StudentDao implements IDaoGenerics<StudentDto> {
         }
     }
 
-
-    ///////// LIST //////////
+    ///////// LIST //////////////////////////////////////////////////////////////////////////////////////
     // Öğrenci Listesi
     /**
      * 📌 Tüm Öğrencileri Listeleme (LIST)
@@ -598,7 +586,6 @@ public class StudentDao implements IDaoGenerics<StudentDto> {
     }
 
     // En Yüksek veya En Düşük Not Alan Öğrenci
-
     /// En Yüksek & En Düşük Not Alan Öğrenci
     public void chooiseStudentNoteMinAndMax() {
         if (!studentDtoList.isEmpty()) {

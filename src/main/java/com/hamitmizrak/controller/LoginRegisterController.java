@@ -16,14 +16,20 @@ import java.util.logging.Logger;
 
 public class LoginRegisterController {
 
+    // ✅ Loglama
     private static final Logger logger = Logger.getLogger(LoginRegisterController.class.getName());
+
+    // ✅ Field
+    private final Scanner scanner = new Scanner(System.in);
+
+    // ✅ Injection
     private final RegisterDao registerDao;
     private final StudentDao studentDao;
     private final TeacherDao teacherDao;
     private final StudentController studentController;
     private final TeacherController teacherController;
-    private final Scanner scanner = new Scanner(System.in);
 
+    // ✅ Parametresiz Constructor
     public LoginRegisterController() {
         registerDao = new RegisterDao();
         studentDao = new StudentDao();
@@ -32,6 +38,7 @@ public class LoginRegisterController {
         teacherController = new TeacherController();
     }
 
+    // ✅ is User Role
     public void isUserRole(RegisterDto registerDto) {
         switch (registerDto.getRole()) {
             case "STUDENT" -> studentController.choose();
@@ -40,6 +47,7 @@ public class LoginRegisterController {
         }
     }
 
+    // ✅ Login
     public void login() {
         int maxAttempts = 3;
         Map<String, Integer> loginAttempts = new HashMap<>();
@@ -84,6 +92,7 @@ public class LoginRegisterController {
         }
     }
 
+    // ✅ Register
     private void register() {
         System.out.println("\n" + SpecialColor.BLUE + " Yeni Kullanıcı Kaydı" + SpecialColor.RESET);
         String name, surname, email, nickname, password;
@@ -143,7 +152,6 @@ public class LoginRegisterController {
             register = new RegisterDto(generatedId, nickname, email, password, "TEACHER", false, null, teacher);
             teacherDao.create(teacher);
         }
-
         registerDao.create(register);
         System.out.println("Kayıt İşlemi başarılı! Giriş yapabilirsiniz.");
     }

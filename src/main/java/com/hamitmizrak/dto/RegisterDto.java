@@ -10,19 +10,26 @@ import java.util.logging.Logger;
 
 public class RegisterDto {
 
+    // ✅ Loglama
     private static final Logger logger = Logger.getLogger(RegisterDto.class.getName());
+
+    // ✅ Field
     private int id;
     private String nickname;
     private String emailAddress;
     private String password;
     private boolean isLocked;
     private String role;
+
+    // ✅ Composition
     private StudentDto studentDto;
     private TeacherDto teacherDto;
 
+    // ✅ CIPHER
     private static final String AES_ALGORITHM = "AES";
     private static final String SECRET_KEY = "MY_16_BYTE_KEY_!";
 
+    // ✅ Parametresiz Constructor
     public RegisterDto() {
         this.id = 0;
         this.nickname = "your_nickname";
@@ -34,6 +41,7 @@ public class RegisterDto {
         this.teacherDto = null;
     }
 
+    // ✅ Parametresiz Constructor
     public RegisterDto(int id, String nickname, String emailAddress, String password, String role, boolean isLocked,
                        StudentDto studentDto, TeacherDto teacherDto) {
         this.id = id;
@@ -46,10 +54,13 @@ public class RegisterDto {
         this.teacherDto = teacherDto;
     }
 
+    //////////////////////////////////////////////////////////////////////////
+    // ✅
     private static SecretKey generateKey() {
         return new SecretKeySpec(SECRET_KEY.getBytes(StandardCharsets.UTF_8), AES_ALGORITHM);
     }
 
+    // ✅
     public static String encryptPassword(String password) {
         if (password == null || password.isBlank()) return null;
         try {
@@ -63,6 +74,7 @@ public class RegisterDto {
         }
     }
 
+    // ✅
     public static String decryptPassword(String encryptedPassword) {
         if (encryptedPassword == null || encryptedPassword.isBlank()) return null;
         try {
@@ -76,6 +88,7 @@ public class RegisterDto {
         }
     }
 
+    // ✅
     public boolean validatePassword(String inputPassword) {
         String decryptedPassword = decryptPassword(this.password);
         if (decryptedPassword == null) {
@@ -85,11 +98,12 @@ public class RegisterDto {
         return decryptedPassword.equals(inputPassword);
     }
 
-
+    // ✅
     public String getDecryptedPassword() {
         return decryptPassword(this.password);
     }
 
+    // ✅ toString
     @Override
     public String toString() {
         return "RegisterDto{" +
@@ -101,6 +115,7 @@ public class RegisterDto {
                 '}';
     }
 
+    // ✅ GETTER AND SETTER
     public int getId() { return id; }
     public void setId(int id) { this.id = id; }
 

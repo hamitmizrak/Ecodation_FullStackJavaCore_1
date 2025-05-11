@@ -192,6 +192,7 @@ public class TeacherController implements IDaoGenerics<TeacherDto> {
     }
 
     public void searchTeacher() {
+       listTeachers();
         Scanner scanner = new Scanner(System.in);
         System.out.print("Aranacak öğretmen adı: ");
         String name = scanner.nextLine().trim();
@@ -204,6 +205,7 @@ public class TeacherController implements IDaoGenerics<TeacherDto> {
     }
 
     public void updateTeacher() {
+       listTeachers();
         Scanner scanner = new Scanner(System.in);
         System.out.print("Güncellenecek öğretmen ID: ");
         int id = scanner.nextInt();
@@ -230,6 +232,7 @@ public class TeacherController implements IDaoGenerics<TeacherDto> {
     }
 
     public void deleteTeacher() {
+       listTeachers();
         Scanner scanner = new Scanner(System.in);
         System.out.print("Silinecek öğretmen ID: ");
         int id = scanner.nextInt();

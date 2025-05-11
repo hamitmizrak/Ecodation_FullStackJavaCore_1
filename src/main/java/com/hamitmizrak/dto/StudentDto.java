@@ -8,13 +8,14 @@ import java.util.logging.Logger;
 
 public class StudentDto extends PersonDto implements Serializable {
 
-    // Serileştirme
+    // ✅ Serileştirme
     private static final long serialVersionUID = 556364655645656546L;
 
-    // Logger
+    // ✅ Logger
     private static final Logger logger = Logger.getLogger(StudentDto.class.getName());
 
 
+    // ✅ Field
     private EStudentType eStudentType;
     private ERole eRole;
     private Double midTerm;
@@ -22,12 +23,12 @@ public class StudentDto extends PersonDto implements Serializable {
     private Double resultTerm;
     private String status;
 
-    // static (Nesne boyunca 1 kere oluşturulur)
+    // ✅ static (Nesne boyunca 1 kere oluşturulur)
     static {
         System.out.println(SpecialColor.BLUE + "✅ static StudentDto Yüklendi" + SpecialColor.RESET);
     }
 
-    // Parametresiz Constructor
+    // ✅ Parametresiz Constructor
     public StudentDto() {
         super();
         this.eStudentType = EStudentType.OTHER;
@@ -38,6 +39,7 @@ public class StudentDto extends PersonDto implements Serializable {
         this.status = determineStatus();
     }
 
+    // ✅ Parametreli Constructor
     public StudentDto(Integer id, String name, String surname, LocalDate birthDate,
                       Double midTerm, Double finalTerm, EStudentType eStudentType, ERole eRole) {
         super(id, name, surname, birthDate);
@@ -49,11 +51,12 @@ public class StudentDto extends PersonDto implements Serializable {
         this.status = determineStatus();
     }
 
-    // Parametreli Constructor
+    // ✅ Parametreli Constructor
     public StudentDto(Integer id, String name, String surname, LocalDate birthDate, EStudentType eStudentType, ERole eRole) {
         this(id, name, surname, birthDate, 0.0, 0.0, eStudentType, eRole);
     }
 
+    // ✅ Vize-Final
     private Double calculateResult() {
         if (midTerm == null || finalTerm == null) {
             logger.warning("⚠️ Not hesaplama hatası: Vize veya Final null değer içeriyor!");
@@ -65,9 +68,10 @@ public class StudentDto extends PersonDto implements Serializable {
     // **📌 Status: Geçme / Kalma**
     private String determineStatus() {
         //return (this.resultTerm >= 50.0) ? "Geçti ✅" : "Kaldı ❌";
-        return (this.resultTerm >= 50.0) ? "Geçti" : "Kaldı";
+        return (this.resultTerm >= 50.0) ? "Geçti ✅" : "Kaldı  ❌";
     }
 
+    // toString ✅
     @Override
     public String toString() {
         return "StudentDto{" +
