@@ -70,7 +70,7 @@ public class LoginRegisterController {
 
 
                 // Şifre
-                System.out.println("Kullanıcı Şifresi: \b\n"+RegisterDto.encryptPassword(password));
+                System.out.println("Kullanıcı Şifresi: \b\b"+RegisterDto.encryptPassword(password));
                 System.out.println("Dosyada kayıtlı şifre: \b\b"+user.getPassword());
                 // Hesabınız Kilitli
                 if (user.isLocked()) {
