@@ -48,6 +48,7 @@ public class LoginRegisterController {
     }
 
     // ✅ Login
+    // hamitmizrak@gmail.com root
     public void login() {
         int maxAttempts = 3;
         Map<String, Integer> loginAttempts = new HashMap<>();
@@ -59,16 +60,26 @@ public class LoginRegisterController {
             System.out.print("Şifre: ");
             String password = scanner.nextLine().trim();
 
+            // Şifre
+            System.out.println(RegisterDto.encryptPassword(password));
+
+            //hamitmizrak@gmail.com  root
             Optional<RegisterDto> findIsEmail = registerDao.findByEmail(email);
             if (findIsEmail.isPresent()) {
                 RegisterDto user = findIsEmail.get();
 
+
+                // Şifre
+                System.out.println("Kullanıcı Şifresi: \b\n"+RegisterDto.encryptPassword(password));
+                System.out.println("Dosyada kayıtlı şifre: \b\b"+user.getPassword());
+                // Hesabınız Kilitli
                 if (user.isLocked()) {
                     System.out.println("Hesabınız kilitli.");
                     return;
                 }
 
-                if (user.validatePassword(password)) {
+                // Database kontrol
+                if (user.getEmailAddress().equals(email) && user.getPassword().equals(RegisterDto.encryptPassword(password)  )) {  // user.validatePassword(password)
                     System.out.println(SpecialColor.GREEN + "Başarıyla giriş yaptınız " + SpecialColor.RESET +
                             SpecialColor.BLUE + "Hoşgeldiniz " + email + SpecialColor.RESET);
                     isUserRole(user);
