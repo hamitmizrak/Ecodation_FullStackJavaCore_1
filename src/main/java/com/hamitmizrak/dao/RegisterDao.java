@@ -66,15 +66,17 @@ public class RegisterDao implements IDaoGenerics<RegisterDto> {
             String[] parts = csvLine.split("\\|");
             if (parts.length < 6) return null;
 
+            // csvToRegister metodunda, yeni constructor kullanılmalı
             return new RegisterDto(
                     Integer.parseInt(parts[0]),
                     parts[1],
                     parts[2],
-                    parts[3], // 📌 Şifrelenmiş olarak saklandığı için tekrar şifreleme yapmıyoruz!
+                    parts[3], // 📌 şifrelenmiş
                     parts[5],
                     Boolean.parseBoolean(parts[4]),
                     null,
-                    null
+                    null,
+                    true // ✅ şifre zaten şifreli olduğu için
             );
         } catch (Exception e) {
             logger.warning("Hatalı kayıt satırı: " + csvLine);

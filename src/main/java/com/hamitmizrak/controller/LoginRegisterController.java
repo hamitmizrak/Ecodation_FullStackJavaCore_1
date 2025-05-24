@@ -60,28 +60,27 @@ public class LoginRegisterController {
             System.out.print("Şifre: ");
             String password = scanner.nextLine().trim();
 
-            // Şifre
-            System.out.println(RegisterDto.encryptPassword(password));
 
             //hamitmizrak@gmail.com  root
             Optional<RegisterDto> findIsEmail = registerDao.findByEmail(email);
             if (findIsEmail.isPresent()) {
                 RegisterDto user = findIsEmail.get();
 
-
-                // Şifre
-                System.out.println("Kullanıcı Şifresi: \b\b"+RegisterDto.encryptPassword(password));
-                System.out.println("Dosyada kayıtlı şifre: \b\b"+user.getPassword());
                 // Hesabınız Kilitli
                 if (user.isLocked()) {
                     System.out.println("Hesabınız kilitli.");
                     return;
                 }
 
+                // Şifre
+                System.out.println("Kullanıcı şifre: " + RegisterDto.encryptPassword(password));
+                System.out.println("1.alan: " + user.getPassword());
+                System.out.println("2.alan: " + user.validatePassword(password));
+
                 // Database kontrol
-                if (user.getEmailAddress().equals(email) && user.getPassword().equals(RegisterDto.encryptPassword(password)  )) {  // user.validatePassword(password)
-                    System.out.println(SpecialColor.GREEN + "Başarıyla giriş yaptınız " + SpecialColor.RESET +
-                            SpecialColor.BLUE + "Hoşgeldiniz " + email + SpecialColor.RESET);
+                System.out.println();
+                if (user.getEmailAddress().equals(email) && user.validatePassword(password)) {
+                    System.out.println(SpecialColor.GREEN + "✅ Başarıyla giriş yaptınız " + SpecialColor.RESET);
                     isUserRole(user);
                     break;
                 } else {
@@ -143,12 +142,13 @@ public class LoginRegisterController {
 
         int generatedId = registerDao.generateNewId();
         RegisterDto register;
-
         if (role == ERole.STUDENT) {
             System.out.print("Öğrenci Türünüz (UNDERGRADUATE, GRADUATE, PHD, OTHER): ");
             EStudentType studentType = EStudentType.valueOf(scanner.nextLine().trim().toUpperCase());
             StudentDto student = new StudentDto(generatedId, name, surname, birthDate, studentType, role);
-            register = new RegisterDto(generatedId, nickname, email, password, "STUDENT", false, student, null);
+
+            // ✅ Şifre düz hali gönderiliyor, şifreleme içeride yapılacak
+            register = new RegisterDto(generatedId, nickname, email, password, "STUDENT", false, student, null, false);
             studentDao.create(student);
         } else {
             System.out.print("Uzmanlık Alanınız (MATHEMATICS, CHEMISTRY, BIOLOGY, HISTORY, COMPUTER_SCIENCE, OTHER): ");
@@ -160,10 +160,14 @@ public class LoginRegisterController {
             scanner.nextLine();
 
             TeacherDto teacher = new TeacherDto(generatedId, name, surname, birthDate, eTeacherSubject, yearsOfExperience, false, salary);
-            register = new RegisterDto(generatedId, nickname, email, password, "TEACHER", false, null, teacher);
+
+            // ✅ Şifre düz hali gönderiliyor, şifreleme içeride yapılacak
+            register = new RegisterDto(generatedId, nickname, email, password, "TEACHER", false, null, teacher, false);
             teacherDao.create(teacher);
         }
+
         registerDao.create(register);
         System.out.println("Kayıt İşlemi başarılı! Giriş yapabilirsiniz.");
+        System.out.println();
     }
 }

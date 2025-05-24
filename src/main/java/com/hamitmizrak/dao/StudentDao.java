@@ -155,7 +155,7 @@ public class StudentDao implements IDaoGenerics<StudentDto> {
             this.fileHandler.writeFile(studentToCsv(studentDto));
 
             System.out.println(studentDto+ SpecialColor.GREEN + "✅ Öğrenci başarıyla eklendi!" + SpecialColor.RESET);
-            logger.info("✅ Yeni öğrenci eklendi: " + studentDto.getName());
+            //logger.info("✅ Yeni öğrenci eklendi: " + studentDto.getName());
             return Optional.of(studentDto);
         } catch (IllegalArgumentException e) {
             System.out.println(SpecialColor.RED + "⛔ Hata: " + e.getMessage() + SpecialColor.RESET);

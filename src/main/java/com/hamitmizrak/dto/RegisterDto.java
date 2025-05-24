@@ -4,6 +4,8 @@ import javax.crypto.Cipher;
 import javax.crypto.SecretKey;
 import javax.crypto.spec.SecretKeySpec;
 import java.nio.charset.StandardCharsets;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.Base64;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -42,13 +44,26 @@ public class RegisterDto {
     }
 
     // ✅ Parametresiz Constructor
-    public RegisterDto(int id, String nickname, String emailAddress, String password, String role, boolean isLocked,
+    /*public RegisterDto(int id, String nickname, String emailAddress, String password, String role, boolean isLocked,
                        StudentDto studentDto, TeacherDto teacherDto) {
         this.id = id;
         this.nickname = (nickname != null && !nickname.isBlank()) ? nickname.toLowerCase() : "unknown_user";
         this.emailAddress = emailAddress;
-        this.password = encryptPassword(password);
+        this.password = alreadyEncrypted ? password : encryptPassword(password); // 📌 önemli satır
+        //this.password = password;
         this.role = (role != null && !role.isBlank()) ? role.toUpperCase() : "UNKNOWN";
+        this.isLocked = isLocked;
+        this.studentDto = studentDto;
+        this.teacherDto = teacherDto;
+    }*/
+    // Düzeltme: overload constructor yap ve dosyadan gelen veride şifrelenmemiş gibi davran
+    public RegisterDto(int id, String nickname, String emailAddress, String password, String role, boolean isLocked,
+                       StudentDto studentDto, TeacherDto teacherDto, boolean alreadyEncrypted) {
+        this.id = id;
+        this.nickname = nickname;
+        this.emailAddress = emailAddress;
+        this.password = alreadyEncrypted ? password : encryptPassword(password); // 📌 önemli satır
+        this.role = role;
         this.isLocked = isLocked;
         this.studentDto = studentDto;
         this.teacherDto = teacherDto;
@@ -62,17 +77,19 @@ public class RegisterDto {
 
     // ✅
     public static String encryptPassword(String password) {
-        if (password == null || password.isBlank()) return null;
         try {
-            Cipher cipher = Cipher.getInstance(AES_ALGORITHM);
-            cipher.init(Cipher.ENCRYPT_MODE, generateKey());
-            byte[] encryptedBytes = cipher.doFinal(password.getBytes(StandardCharsets.UTF_8));
-            return Base64.getEncoder().encodeToString(encryptedBytes);
-        } catch (Exception e) {
-            logger.log(Level.SEVERE, "Şifreleme başarısız!", e);
-            return null;
+            MessageDigest md = MessageDigest.getInstance("SHA-256");
+            byte[] hash = md.digest(password.getBytes(StandardCharsets.UTF_8));
+            StringBuilder hexString = new StringBuilder();
+            for (byte b : hash) {
+                hexString.append(String.format("%02x", b));
+            }
+            return hexString.toString();
+        } catch (NoSuchAlgorithmException e) {
+            throw new RuntimeException("Şifreleme hatası", e);
         }
     }
+
 
     // ✅
     public static String decryptPassword(String encryptedPassword) {
@@ -88,15 +105,13 @@ public class RegisterDto {
         }
     }
 
-    // ✅
-    public boolean validatePassword(String inputPassword) {
-        String decryptedPassword = decryptPassword(this.password);
-        if (decryptedPassword == null) {
-            logger.severe("Şifre çözme başarısız! Kullanıcı girişi doğrulanamadı.");
-            return false;
-        }
-        return decryptedPassword.equals(inputPassword);
+    // ✅ Şifre Doğrulama
+    public boolean validatePassword(String rawPassword) {
+        return this.password != null &&
+                this.password.equals(encryptPassword(rawPassword));
     }
+
+
 
     // ✅
     public String getDecryptedPassword() {
@@ -125,8 +140,14 @@ public class RegisterDto {
     public String getEmailAddress() { return emailAddress; }
     public void setEmailAddress(String emailAddress) { this.emailAddress = emailAddress; }
 
-    public String getPassword() { return password; }
-    public void setPassword(String password) { this.password = encryptPassword(password); }
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = encryptPassword(password);
+        //this.password = password;
+    }
 
     public String getRole() { return role; }
     public void setRole(String role) { this.role = role; }
