@@ -26,7 +26,6 @@ public class TeacherController implements IDaoGenerics<TeacherDto> {
     public TeacherController() {
         this.teacherDao = new TeacherDao();
     }
-
     //////////////////////////////////////////////////////////////////////////////////////////
     // CRUD
 
@@ -162,7 +161,7 @@ public class TeacherController implements IDaoGenerics<TeacherDto> {
         System.out.print("Öğretmen Soyadı: ");
         String surname = scanner.nextLine().trim();
 
-        System.out.print("Doğum Yılı: ");
+        System.out.print("Doğum Yılı:(XXXX-XX-XX) ");
         int birthYear = scanner.nextInt();
         scanner.nextLine();
 

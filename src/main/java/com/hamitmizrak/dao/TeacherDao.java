@@ -419,5 +419,4 @@ public class TeacherDao implements IDaoGenerics<TeacherDto> {
         //TeacherDao teacherDao= new TeacherDao();
         //teacherDao.choose();
     }
-
 }
