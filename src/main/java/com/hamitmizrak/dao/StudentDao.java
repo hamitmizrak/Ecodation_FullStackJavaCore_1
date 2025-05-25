@@ -7,6 +7,9 @@ import com.hamitmizrak.exception.StudentNotFoundException;
 import com.hamitmizrak.iofiles.SpecialFileHandler;
 import com.hamitmizrak.utils.SpecialColor;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -292,7 +295,6 @@ public class StudentDao implements IDaoGenerics<StudentDto> {
                 }
             }
             // throw new RegisterNotFoundException("⚠️ Güncellenecek öğrenci bulunamadı, ID: " + id);
-
         } catch (Exception e) {
             e.printStackTrace();
             throw new StudentNotFoundException("Öğrenci bulunamadı.");
@@ -310,8 +312,17 @@ public class StudentDao implements IDaoGenerics<StudentDto> {
         Optional<StudentDto> studentToDelete = findById(id);
         if (studentToDelete.isPresent()) {
             studentDtoList.remove(studentToDelete.get());
-            // Silinen Öğrenciyi dosyaya kaydet
-            this.fileHandler.writeFile(studentToCsv(studentToDelete.get()));
+
+            // ✅ DOSYAYI YENİDEN YAZ (tüm liste)
+            try (BufferedWriter writer = new BufferedWriter(new FileWriter(fileHandler.getFilePath(), false))) {
+                for (StudentDto student : studentDtoList) {
+                    writer.write(studentToCsv(student));
+                    writer.newLine();
+                }
+            } catch (IOException e) {
+                logger.severe("❌ Dosyaya yeniden yazma hatası: " + e.getMessage());
+            }
+
             logger.info("✅ Öğrenci silindi, ID: " + id);
             System.out.println(SpecialColor.BLUE + "Öğrenci Silindi" + SpecialColor.RESET);
             return studentToDelete;
@@ -320,6 +331,7 @@ public class StudentDao implements IDaoGenerics<StudentDto> {
             return Optional.empty();
         }
     }
+
 
 
     ///////////////////////////////////////////////////////////////////////
@@ -508,37 +520,72 @@ public class StudentDao implements IDaoGenerics<StudentDto> {
         }
     }
 
-    /// Student Update
     public void chooiseStudenUpdate() {
         list();
         System.out.print("\n" + SpecialColor.YELLOW + "Güncellenecek Öğrenci ID: " + SpecialColor.RESET);
         int id = scanner.nextInt();
-        scanner.nextLine(); // Boşluğu temizleme
+        scanner.nextLine(); // Buffer temizle
 
-        System.out.print("Güncellenecek Öğrenci Yeni Adı: ");
+        Optional<StudentDto> studentToUpdateOpt = findById(id);
+        if (studentToUpdateOpt.isEmpty()) {
+            System.out.println(SpecialColor.RED + "⚠️ Güncellenecek öğrenci bulunamadı!" + SpecialColor.RESET);
+            return;
+        }
+
+        // Eski kayıdıda göstersin
+        StudentDto oldStudent = studentToUpdateOpt.get();
+
+        System.out.print("Yeni Adı (" + oldStudent.getName() + "): ");
         String nameUpdate = scanner.nextLine().trim();
+        nameUpdate = nameUpdate.isEmpty() ? oldStudent.getName() : nameUpdate;
 
-        System.out.print("Güncellenecek Öğrenci Yeni Soyadı: ");
+        System.out.print("Yeni Soyadı (" + oldStudent.getSurname() + "): ");
         String surnameUpdate = scanner.nextLine().trim();
+        surnameUpdate = surnameUpdate.isEmpty() ? oldStudent.getSurname() : surnameUpdate;
 
-        System.out.print("Güncellenecek Öğrenci Doğum Tarihi (YYYY-MM-DD): ");
-        LocalDate birthDateUpdate = LocalDate.parse(scanner.nextLine().trim());
+        System.out.print("Yeni Doğum Tarihi (" + oldStudent.getBirthDate() + ") (YYYY-MM-DD): ");
+        String birthDateInput = scanner.nextLine().trim();
+        LocalDate birthDateUpdate = birthDateInput.isEmpty() ? oldStudent.getBirthDate() : LocalDate.parse(birthDateInput);
 
-        System.out.print("Güncellenecek Öğrenci Yeni Vize Notu: ");
-        double midTermUpdate = scanner.nextDouble();
+        System.out.print("Yeni Vize Notu (" + oldStudent.getMidTerm() + "): ");
+        String midTermInput = scanner.nextLine().trim();
+        double midTermUpdate = midTermInput.isEmpty() ? oldStudent.getMidTerm() : Double.parseDouble(midTermInput);
 
-        System.out.print("Güncellenecek Öğrenci Yeni Final Notu: ");
-        double finalTermUpdate = scanner.nextDouble();
+        System.out.print("Yeni Final Notu (" + oldStudent.getFinalTerm() + "): ");
+        String finalTermInput = scanner.nextLine().trim();
+        double finalTermUpdate = finalTermInput.isEmpty() ? oldStudent.getFinalTerm() : Double.parseDouble(finalTermInput);
 
-        //  // Integer id, String name, String surname, LocalDate birthDate,Double midTerm, Double finalTerm,EStudentType eStudentType
-        StudentDto studentUpdate = new StudentDto(id, nameUpdate, surnameUpdate, birthDateUpdate, midTermUpdate, finalTermUpdate, studentTypeMethod(), ERole.STUDENT);
+        StudentDto updatedStudent = new StudentDto(
+                id,
+                nameUpdate,
+                surnameUpdate,
+                birthDateUpdate,
+                midTermUpdate,
+                finalTermUpdate,
+                studentTypeMethod(), // Güncel tür
+                ERole.STUDENT
+        );
+
         try {
-            update(id, studentUpdate);
-            System.out.println("Öğrenci başarıyla güncellendi.");
+            update(id, updatedStudent); // Listede güncelle
+
+            // ✅ Dosyayı baştan yaz
+            try (BufferedWriter writer = new BufferedWriter(new FileWriter(fileHandler.getFilePath(), false))) {
+                for (StudentDto student : studentDtoList) {
+                    writer.write(studentToCsv(student));
+                    writer.newLine();
+                }
+            } catch (IOException e) {
+                System.out.println(SpecialColor.RED + "❌ Dosya güncelleme hatası: " + e.getMessage() + SpecialColor.RESET);
+            }
+
+            System.out.println(SpecialColor.GREEN + "🟢 Öğrenci başarıyla güncellendi." + SpecialColor.RESET);
         } catch (StudentNotFoundException e) {
-            System.out.println(e.getMessage());
+            System.out.println(SpecialColor.RED + e.getMessage() + SpecialColor.RESET);
         }
     }
+
+
 
     /// Student Delete
     public void chooiseStudenDelete() {
