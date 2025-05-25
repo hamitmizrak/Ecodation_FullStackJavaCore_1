@@ -7,11 +7,15 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Logger;
 
+/**
+ * 📌 Dosya işlemlerinde Default değerleri oluşturmak için kullanıyoruz.
+ */
 public class SpecialFileHandler implements IFileHandlerInterface{
-    // Field
+
     // Loglama
     private static final Logger logger = Logger.getLogger(SpecialFileHandler.class.getName());
 
+    // Field
     // Path
     private String filePath;
 
@@ -20,7 +24,7 @@ public class SpecialFileHandler implements IFileHandlerInterface{
         this.filePath = "hamitmizrak.txt";  // Varsayılan dosya adı
     }
 
-    // File
+    // Dosya Yoksa oluştur varsa olandan devam et
     @Override
     public void createFileIfNotExists() {
         File file = new File(filePath);
@@ -86,6 +90,7 @@ public class SpecialFileHandler implements IFileHandlerInterface{
             System.out.println(SpecialColor.BLUE+"✅ Dosyadan " + fileLines.size() + " satır başarıyla okundu."+SpecialColor.RESET);
         }
 
+        // Dosya Okumaya başla
         try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
             String line;
             //logger.info("📖 Dosya içeriği okunuyor...");
@@ -119,4 +124,4 @@ public class SpecialFileHandler implements IFileHandlerInterface{
             this.filePath = filePath;
         }
     }
-}
+} // end SpecialFileHandler

@@ -3,6 +3,7 @@ package com.hamitmizrak.log;
 import java.lang.reflect.Method;
 import java.lang.reflect.Parameter;
 
+// AOP: Güvenlik işlemlerinde kullanırız.
 public class LoggingAspect {
 
     public static void invokeAnnotatedMethods(Object obj, Object... args) {
@@ -28,7 +29,6 @@ public class LoggingAspect {
                             System.err.println("⚠️ " + method.getName() + " metodu için yanlış parametre sayısı verildi! Beklenen: " + parameters.length + ", verilen: " + args.length);
                         }
                     }
-
                 } catch (Exception e) {
                     throw new RuntimeException("Metod çağrılırken hata oluştu: " + method.getName(), e);
                 }

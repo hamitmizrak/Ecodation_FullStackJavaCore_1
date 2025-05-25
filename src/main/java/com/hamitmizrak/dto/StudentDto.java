@@ -6,6 +6,10 @@ import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.logging.Logger;
 
+/**
+ * 📌 Öğrenci Class
+ * PersonDto extend ederek başlıyoruz.
+ */
 public class StudentDto extends PersonDto implements Serializable {
 
     // ✅ Serileştirme
@@ -13,7 +17,6 @@ public class StudentDto extends PersonDto implements Serializable {
 
     // ✅ Logger
     private static final Logger logger = Logger.getLogger(StudentDto.class.getName());
-
 
     // ✅ Field
     private EStudentType eStudentType;
@@ -88,12 +91,14 @@ public class StudentDto extends PersonDto implements Serializable {
                 '}';
     }
 
+    // INFO
     @Override
     public void displayInfo() {
         logger.info(this.toString());
     }
 
     // Getter ve Setter Metotları
+    // EStudentType
     public EStudentType getEStudentType() {
         return eStudentType;
     }
@@ -102,6 +107,7 @@ public class StudentDto extends PersonDto implements Serializable {
         this.eStudentType = (eStudentType != null) ? eStudentType : EStudentType.OTHER;
     }
 
+    // ERole
     public ERole getERole() {
         return eRole;
     }
@@ -110,6 +116,7 @@ public class StudentDto extends PersonDto implements Serializable {
         this.eRole = (eRole != null) ? eRole : ERole.STUDENT;
     }
 
+    // MidTerm
     public Double getMidTerm() {
         return midTerm;
     }
@@ -120,6 +127,7 @@ public class StudentDto extends PersonDto implements Serializable {
         this.status = determineStatus();
     }
 
+    // FinalTerm
     public Double getFinalTerm() {
         return finalTerm;
     }
@@ -133,6 +141,7 @@ public class StudentDto extends PersonDto implements Serializable {
         this.status = determineStatus();
     }
 
+    // ResultTerm
     public Double getResultTerm() {
         return resultTerm;
     }

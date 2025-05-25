@@ -56,34 +56,43 @@ public abstract class PersonDto {
     }
 
     // Getter & Setter Metotları
+
+    // ID
     public Integer getId() {
         return id;
     }
 
+    // Eğer ID boş gelirse default olarak Sıfır(0) ver
     public void setId(Integer id) {
         this.id = (id != null) ? id : 0;
     }
 
+    // NAME
     public String getName() {
         return name;
     }
 
+    // Eğer name null olarak gelirse default olarak :"Bilinmeyen" yazsın
     public void setName(String name) {
         this.name = (name != null && !name.isBlank()) ? name : "Bilinmeyen";
     }
 
+    // SURNAME
     public String getSurname() {
         return surname;
     }
 
+    // Eğer surname null olarak gelirse default olarak :"Bilinmeyen" yazsın
     public void setSurname(String surname) {
         this.surname = (surname != null && !surname.isBlank()) ? surname : "Bilinmeyen";
     }
 
+    // BIRTHDATE
     public LocalDate getBirthDate() {
         return birthDate;
     }
 
+    // Eğer name null olarak gelirse default olarak :"Bilinmeyen" yazsın
     public void setBirthDate(LocalDate birthDate) {
         this.birthDate = (birthDate != null) ? birthDate : LocalDate.now();
     }
@@ -91,4 +100,4 @@ public abstract class PersonDto {
     public Date getCreatedDate() {
         return createdDate; // Değiştirilemez
     }
-}
+} // end PersonDto

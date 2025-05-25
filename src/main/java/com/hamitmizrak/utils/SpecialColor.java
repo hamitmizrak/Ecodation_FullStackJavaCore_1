@@ -1,5 +1,6 @@
 package com.hamitmizrak.utils;
 
+// Farklı Renklerde Loglama için kullanıyoruz
 public class SpecialColor {
 
     /*

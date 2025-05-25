@@ -5,6 +5,8 @@ import java.util.List;
 /**
  * 📌 Dosya işlemleri için temel arayüz
  * Her dosya yönetim sınıfının bu arayüzü uygulaması beklenir.
+ * Eğer public yazarsanız farklı classlarda da erişim olur yazmaksak;
+ * Sadece o pakettekiler erişim sağlar
  */
 public interface IFileHandlerInterface {
 
