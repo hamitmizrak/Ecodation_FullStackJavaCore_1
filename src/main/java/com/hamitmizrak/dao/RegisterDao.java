@@ -50,6 +50,7 @@ public class RegisterDao implements IDaoGenerics<RegisterDto> {
                 registerDtoList.stream().mapToInt(RegisterDto::getId).max().orElse(0) + 1;
     }
 
+    // CSV
     private String registerToCsv(RegisterDto registerDto) {
         return String.join("|",
                 String.valueOf(registerDto.getId()),
@@ -61,6 +62,7 @@ public class RegisterDao implements IDaoGenerics<RegisterDto> {
         );
     }
 
+    // CSV
     private RegisterDto csvToRegister(String csvLine) {
         try {
             String[] parts = csvLine.split("\\|");

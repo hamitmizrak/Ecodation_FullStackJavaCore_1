@@ -14,6 +14,7 @@ import java.util.Optional;
 import java.util.Scanner;
 import java.util.logging.Logger;
 
+// Login Register
 public class LoginRegisterController {
 
     // ✅ Loglama

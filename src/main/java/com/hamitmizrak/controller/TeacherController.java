@@ -26,9 +26,9 @@ public class TeacherController implements IDaoGenerics<TeacherDto> {
     public TeacherController() {
         this.teacherDao = new TeacherDao();
     }
+
     //////////////////////////////////////////////////////////////////////////////////////////
     // CRUD
-
     // ✅ CREATE
     @Override
     @LogExecutionTime

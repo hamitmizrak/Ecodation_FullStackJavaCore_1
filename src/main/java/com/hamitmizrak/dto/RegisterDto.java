@@ -10,6 +10,7 @@ import java.util.Base64;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+// RegisterDto
 public class RegisterDto {
 
     // ✅ Loglama
@@ -44,19 +45,6 @@ public class RegisterDto {
     }
 
     // ✅ Parametresiz Constructor
-    /*public RegisterDto(int id, String nickname, String emailAddress, String password, String role, boolean isLocked,
-                       StudentDto studentDto, TeacherDto teacherDto) {
-        this.id = id;
-        this.nickname = (nickname != null && !nickname.isBlank()) ? nickname.toLowerCase() : "unknown_user";
-        this.emailAddress = emailAddress;
-        this.password = alreadyEncrypted ? password : encryptPassword(password); // 📌 önemli satır
-        //this.password = password;
-        this.role = (role != null && !role.isBlank()) ? role.toUpperCase() : "UNKNOWN";
-        this.isLocked = isLocked;
-        this.studentDto = studentDto;
-        this.teacherDto = teacherDto;
-    }*/
-    // Düzeltme: overload constructor yap ve dosyadan gelen veride şifrelenmemiş gibi davran
     public RegisterDto(int id, String nickname, String emailAddress, String password, String role, boolean isLocked,
                        StudentDto studentDto, TeacherDto teacherDto, boolean alreadyEncrypted) {
         this.id = id;
@@ -90,7 +78,6 @@ public class RegisterDto {
         }
     }
 
-
     // ✅
     public static String decryptPassword(String encryptedPassword) {
         if (encryptedPassword == null || encryptedPassword.isBlank()) return null;
@@ -111,8 +98,6 @@ public class RegisterDto {
                 this.password.equals(encryptPassword(rawPassword));
     }
 
-
-
     // ✅
     public String getDecryptedPassword() {
         return decryptPassword(this.password);
@@ -131,14 +116,29 @@ public class RegisterDto {
     }
 
     // ✅ GETTER AND SETTER
-    public int getId() { return id; }
-    public void setId(int id) { this.id = id; }
+    public int getId() {
+        return id;
+    }
 
-    public String getNickname() { return nickname; }
-    public void setNickname(String nickname) { this.nickname = nickname; }
+    public void setId(int id) {
+        this.id = id;
+    }
 
-    public String getEmailAddress() { return emailAddress; }
-    public void setEmailAddress(String emailAddress) { this.emailAddress = emailAddress; }
+    public String getNickname() {
+        return nickname;
+    }
+
+    public void setNickname(String nickname) {
+        this.nickname = nickname;
+    }
+
+    public String getEmailAddress() {
+        return emailAddress;
+    }
+
+    public void setEmailAddress(String emailAddress) {
+        this.emailAddress = emailAddress;
+    }
 
     public String getPassword() {
         return password;
@@ -149,15 +149,35 @@ public class RegisterDto {
         //this.password = password;
     }
 
-    public String getRole() { return role; }
-    public void setRole(String role) { this.role = role; }
+    public String getRole() {
+        return role;
+    }
 
-    public boolean isLocked() { return isLocked; }
-    public void setLocked(boolean locked) { isLocked = locked; }
+    public void setRole(String role) {
+        this.role = role;
+    }
 
-    public StudentDto getStudentDto() { return studentDto; }
-    public void setStudentDto(StudentDto studentDto) { this.studentDto = studentDto; }
+    public boolean isLocked() {
+        return isLocked;
+    }
 
-    public TeacherDto getTeacherDto() { return teacherDto; }
-    public void setTeacherDto(TeacherDto teacherDto) { this.teacherDto = teacherDto; }
+    public void setLocked(boolean locked) {
+        isLocked = locked;
+    }
+
+    public StudentDto getStudentDto() {
+        return studentDto;
+    }
+
+    public void setStudentDto(StudentDto studentDto) {
+        this.studentDto = studentDto;
+    }
+
+    public TeacherDto getTeacherDto() {
+        return teacherDto;
+    }
+
+    public void setTeacherDto(TeacherDto teacherDto) {
+        this.teacherDto = teacherDto;
+    }
 }

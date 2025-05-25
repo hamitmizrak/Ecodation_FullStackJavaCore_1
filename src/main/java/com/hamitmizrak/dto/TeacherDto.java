@@ -29,10 +29,10 @@ public record TeacherDto(
         String name,
         String surname,
         LocalDate birthDate,
-        ETeacherSubject subject,
-        int yearsOfExperience,
-        boolean isTenured,
-        double salary
+        ETeacherSubject subject, // Öğretmen Türü
+        int yearsOfExperience, // Deneyim yılı
+        boolean isTenured, // Kadrolu mu ?
+        double salary // Maaş
 ) implements Serializable {
 
     // Logger
@@ -66,7 +66,7 @@ public record TeacherDto(
 
     // Method
     public String fullName() {
-        return id + " - " + name + " " + surname + " (" + subject + ")";
+        return id + " - " + name + " " + surname + " ,Doğum Tarihi: "+birthDate+" ,Deneyim Yılı "+yearsOfExperience+" ,Kadrolu mu ? "+isTenured+" ,Maaşı "+salary;
     }
 
     // Öğretmen deneyim yılına göre

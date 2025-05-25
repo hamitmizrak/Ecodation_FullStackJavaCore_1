@@ -207,7 +207,6 @@ public class StudentDao implements IDaoGenerics<StudentDto> {
 
     ///////// LIST //////////////////////////////////////////////////////////////////////////////////////
     // Öğrenci Listesi
-
     /**
      * 📌 Tüm Öğrencileri Listeleme (LIST)
      */
@@ -332,8 +331,6 @@ public class StudentDao implements IDaoGenerics<StudentDto> {
         }
     }
 
-
-
     ///////////////////////////////////////////////////////////////////////
     ///////// STUDENT TYPE //////////
     // Enum Öğrenci Türü Method
@@ -371,14 +368,14 @@ public class StudentDao implements IDaoGenerics<StudentDto> {
                 System.out.print("\n" + SpecialColor.PURPLE + "Seçiminizi yapınız: " + SpecialColor.RESET);
 
                 int choice = scanner.nextInt();
-                scanner.nextLine(); // Boşluğu temizleme
+                scanner.nextLine(); // Cache bellek(Boşluğu temizleme)
 
                 switch (choice) {
                     case 1 -> chooiseStudentAdd();
 
                     case 2 -> chooiseStudentList();
 
-                    case 3 -> chooiseStudenSearch();
+                    case 3 -> chooiseStudentSearch();
 
                     case 4 -> chooiseStudenUpdate();
 
@@ -507,9 +504,8 @@ public class StudentDao implements IDaoGenerics<StudentDto> {
         }
     }
 
-
     /// Student Search
-    public void chooiseStudenSearch() {
+    public void chooiseStudentSearch() {
         list();
         System.out.print("\n" + SpecialColor.YELLOW + "Aranacak Öğrenci Adı: " + SpecialColor.RESET);
         String searchName = scanner.nextLine().trim();
@@ -586,7 +582,6 @@ public class StudentDao implements IDaoGenerics<StudentDto> {
     }
 
 
-
     /// Student Delete
     public void chooiseStudenDelete() {
         list();
@@ -609,7 +604,6 @@ public class StudentDao implements IDaoGenerics<StudentDto> {
     }
 
     // Rastgele Öğrenci
-
     /// Student Random
     public void chooiseRandomStudent() {
         if (!studentDtoList.isEmpty()) {
@@ -621,7 +615,6 @@ public class StudentDao implements IDaoGenerics<StudentDto> {
     }
 
     // Öğrenci Not Ortalaması Hesapla
-
     /// Öğrenci Not Ortalaması Hesapla
     public void chooiseStudentNoteAverage() {
         if (!studentDtoList.isEmpty()) {
@@ -636,7 +629,6 @@ public class StudentDao implements IDaoGenerics<StudentDto> {
     }
 
     // En Yüksek veya En Düşük Not Alan Öğrenci
-
     /// En Yüksek & En Düşük Not Alan Öğrenci
     public void chooiseStudentNoteMinAndMax() {
         if (!studentDtoList.isEmpty()) {
@@ -656,7 +648,6 @@ public class StudentDao implements IDaoGenerics<StudentDto> {
     }
 
     // Öğrenci Sıralaması (Doğum günü)
-
     /// Öğrencileri Doğum Tarihine Göre Sırala
     public void chooiseStudentBirthdaySortedDate() {
         studentDtoList.stream()
@@ -680,8 +671,8 @@ public class StudentDao implements IDaoGenerics<StudentDto> {
 
     // TEST
     public static void main(String[] args) {
-        StudentDao studentDao = new StudentDao();
-        studentDao.choose();
+        //StudentDao studentDao = new StudentDao();
+        //studentDao.choose();
     }
 
 } // end class StudentDao
